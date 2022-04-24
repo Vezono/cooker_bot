@@ -25,6 +25,11 @@ def tea_keyboard(reciever):
     return keyboard
 
 
+@bot.message_handler(commands=['get_info'])
+def get_info_handler(m):
+    bot.send_message(m.from_user.id, str(m))
+
+
 @bot.message_handler(commands=['cook'], func=need_space)
 def cook_handler(m):
     meal = m.text.split(' ', 1)[1].replace(forbid, '')
